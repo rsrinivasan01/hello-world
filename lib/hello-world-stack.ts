@@ -1,16 +1,31 @@
-import * as cdk from 'aws-cdk-lib';
-import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+import {
+  aws_dynamodb, 
+  aws_s3 as s3,
+  RemovalPolicy, 
+  Stack,
+  StackProps
+} from 'aws-cdk-lib';
 
-export class HelloWorldStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+import { Construct } from 'constructs';
+
+
+export class HelloWorldStack extends Stack {
+  constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
+    const s3Bucket = new s3.Bucket(this, 'exampleBucket', {
+      bucketName: 'myfirsts3fromcdk', 
+      removalPolicy: RemovalPolicy.DESTROY
+    });
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'HelloWorldQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    const dynamoDB = new aws_dynamodb.Table(this, 'Users', {
+        tableName: 'users',
+        partitionKey: {
+         name: 'uid',
+          type: aws_dynamodb.AttributeType.STRING
+        },
+        removalPolicy: RemovalPolicy.DESTROY
+      }
+      )
   }
 }
