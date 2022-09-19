@@ -1,31 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@rsrinivasan01 
-AdminTurnedDevOps
-/
-YouTube
-Public
-Code
-Issues
-1
-Pull requests
-Actions
-Projects
-Security
-Insights
-YouTube/.github/workflows/main.yml
-@AdminTurnedDevOps
-AdminTurnedDevOps deploy
-Latest commit 1947170 on Jun 18, 2021
- History
- 1 contributor
-43 lines (34 sloc)  1.04 KB
-
 name: Deploy AWS CDK
 
 # Controls when the action will run. 
