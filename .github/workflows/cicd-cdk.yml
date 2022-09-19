@@ -32,12 +32,12 @@ jobs:
 
       - name: Install Requirements 
         run: 'pip3 install -r requirements.txt'
-        working-directory: .
+        working-directory: ./
 
       - name: CDK Synth
         run: cdk synth
-        working-directory: .
+        working-directory: ./
 
       - name: CDK Deploy
         run: cdk deploy
-        working-directory: .
+        working-directory: ./
