@@ -3,7 +3,8 @@ import {
   aws_s3 as s3,
   RemovalPolicy, 
   Stack,
-  StackProps
+  StackProps,
+  Tags
 } from 'aws-cdk-lib';
 
 import { Construct } from 'constructs';
@@ -25,7 +26,8 @@ export class HelloWorldStack extends Stack {
           type: aws_dynamodb.AttributeType.STRING
         },
         removalPolicy: RemovalPolicy.DESTROY
-      }
-      )
+      });
+
+      Tags.of(this).add('stack-name', 'first-stack')
   }
 }
