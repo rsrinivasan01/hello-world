@@ -14,7 +14,7 @@ jobs:
       - name: cdk destroy
         uses: youyo/aws-cdk-github-actions@v2
         with:
-          cdk_subcommand: 'destroy'
+          cdk_subcommand: 'destroy -f'
           cdk_stack: 'HelloWorldStack'
           cdk_args: '--require-approval never'
           actions_comment: false
